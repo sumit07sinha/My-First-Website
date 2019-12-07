@@ -1,0 +1,11 @@
+//I am asigning red color to all h2 tags//
+h2{
+    color: red;
+}
+//this i have defined as class in html so it will be executed inspite of having tagog h2//
+.subtitle {
+    color: blue;
+}
+#contact-us{
+    color:green
+}
