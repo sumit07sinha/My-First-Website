@@ -7,3 +7,27 @@ color: red;
 #contact-us{
     color:green
 }
+attributes can also do the same thing which is done above by defining class
+h2[class=subtitle]{
+    color:blue;
+} 
+#contact-us{
+    color:green;
+}
+#services {
+    color:green;
+}
+li:nth-child(2){
+    color: steelblue;
+} 
+li:only-child{
+    color: steelblue;
+}
+td:only-child{
+    color:purple;
+}
+#google-link : link{
+    color:blue;
+}
+#google-link: visited{
+    color:red; } 
