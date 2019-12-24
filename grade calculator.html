@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grade Card</title>
+</head>
+<script>
+
+const calculate = () => {
+let maths= document.getElementById("Maths").value;
+let English= document.getElementById("Eng").value;
+let Science= document.getElementById("sci").value;
+let  SocialScience= document.getElementById("ssc").value; 
+let Grades = "";
+if(maths=="" && English =="" && Science =="" && SocialScience ==""){
+document.getElementById("para").innerHTML= `Enter Valid Marks`;
+}
+else if(maths<=100 && English<=100 && Science<=100 && SocialScience<=100){
+ let add = parseFloat(maths)+ parseFloat(English) + parseFloat(Science)+ parseFloat(SocialScience);
+ alert('my total marks is ' + add);
+ let percent= add/400*100;
+ alert(percent);
+ if(percent<=100 && percent>90){
+     Grades='S';
+ }else if(percent<=90 && percent>80){
+     Grades="A";
+ }else if(percent<=80 && percent>70){
+     Grades="B";}
+else if(percent<=70 && percent>55){
+     Grades="C";}
+else if(percent<=55 && percent>40){
+     Grades="D";}
+     else {
+     Grades="F";}
+
+document.getElementById("para").innerHTML= `Marks scored out of 400 is ${add} , Percentage is ${percent} and grade is ${Grades}`;
+}
+
+else {
+document.getElementById("para").innerHTML= `Enter marks less than 100`;
+}
+}
+</script>
+<style>
+body {
+background-image: url("college.jpg");
+
+width:100%;
+height: 100%;
+}
+#para{
+    color:white;
+    font: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+}
+.button {
+  background-color: rgb(7, 146, 111); /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+#head{
+ color:whitesmoke;
+ background-color:#039987 ;
+}
+#result{
+
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#scorecard {
+  border: none;
+  background-color: none;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+ 
+ width:300px;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:33%;
+    margin-top: 10%;
+  
+}
+#calci{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+span {
+    color: black;
+    font: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.subject{
+  
+  width= 20px;
+  height: 20px;
+   border-bottom: 2px solid white;
+  background-color: lightgrey;
+}
+
+  
+
+</style>
+<body>
+  
+    <div id= "scorecard" id="score">
+        
+      <h2 id="head">Grade Card Calculator</h2>
+        <input type="text" placeholder="Mathematics" id="Maths" class="subject">
+        <input type="text" placeholder="English" id="Eng" class="subject">
+        <input type="text" placeholder="Science" id="sci" class="subject">
+        <input type="text" placeholder="Social Science" id="ssc" class="subject">
+        
+    </div>
+    
+    <br>
+    <span id="span" class="span">
+        <button onclick="calculate()" class ="button" id="calci">Calculate</button>
+    </span>
+   
+    <div id="result">
+        <p id="para"></p>
+    </div>
+</body>
+</html>
