@@ -47,8 +47,7 @@ document.getElementById("para").innerHTML= `Enter marks less than 100`;
 body {
 background-image: url("college.jpg");
 
-width:100%;
-height: 100%;
+background-size: cover;
 }
 #para{
     color:white;
@@ -71,7 +70,7 @@ height: 100%;
   transition-duration: 0.4s;
   cursor: pointer;
 }
-#head{
+.head{
  color:whitesmoke;
  background-color:#039987 ;
 }
@@ -118,10 +117,20 @@ span {
 }
 .subject{
   
-  width= 20px;
-  height: 20px;
-   border-bottom: 2px solid white;
-  background-color: lightgrey;
+
+  color:black;
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 20px;
+  height: 30px;
+   border-bottom: 4px solid #039987;
+   border-top: none;
+   border-left: none;
+   border-right: none;
+
+  background:none;
 }
 
   
@@ -131,8 +140,8 @@ span {
   
     <div id= "scorecard" id="score">
         
-      <h2 id="head">Grade Card Calculator</h2>
-        <input type="text" placeholder="Mathematics" id="Maths" class="subject">
+      <h2 class="head">Grade Card Calculator</h2>
+        <input type="text" placeholder="Mathematics" id="Maths" class="subject" >
         <input type="text" placeholder="English" id="Eng" class="subject">
         <input type="text" placeholder="Science" id="sci" class="subject">
         <input type="text" placeholder="Social Science" id="ssc" class="subject">
