@@ -5,6 +5,7 @@ h2{
 //this i have defined as class in html so it will be executed inspite of having tagog h2//
 .subtitle {
     color: blue;
+    background: steel blue;
 }
 #contact-us{
     color:green
