@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Widget</title>
+</head>
+<script type="text/javascript">
+    var ulElement = document.getElementsByTagName("ul")[0];
+
+  let liElement = Array.from(document.getElementsByTagName("li"));
+  let startPer = 0;
+  liElement.forEach(elem => {
+    elem.style.left = `${startPer}%`;
+    elem.style.position = "absolute";
+    startPer += 20;
+  });
+  let curentLeft = 0;
+  let elemIndex = 6;
+  nextClick = function(e) {
+    if (elemIndex < 12) {
+      curentLeft -= 16.67;
+    ulElement.style.transform = `translate3d(${curentLeft}%,0,0)`;
+      elemIndex++;
+    }
+  };
+  prevClick = function(e) {
+    if (elemIndex > 6) {
+      curentLeft += 16.67;
+      ulElement.transform = `translate3d(${curentLeft}%,0,0)`;
+      elemIndex--;
+    }
+  };
+</script>
+<link rel="stylesheet" href="style.css"></link>
+<body>
+    <button type="button" class="button" onClick="prevClick(event)">Previous</button>
+    <button type="button" class="button" onClick="nextClick(event)">Next</button>
+    
+    <div class="container"> 
+     <ul>   
+    <li id="img1"><img src="1.jpeg" width="200px" height="200px"></li>
+    <li id="img2"><img src="2.jpeg" width="200px" height="200px"></li>
+    <li id="img3"><img src="3.jpeg" width="200px" height="200px"></li>
+    <li id="img4"><img src="3.jpeg" width="200px" height="200px"></li>
+    <li id="img5"><img src="3.jpeg" width="200px" height="200px"></li>
+    <li id="img6" ><img src="4.jpeg" width="200px" height="200px"></li>
+    <li id="img7"><img src="5.jpeg" width="200px" height="200px"></li>
+    <li id="img8"><img src="6.jpeg" width="200px" height="200px"></li>
+    <li id="img9"><img src="7.jpeg" width="200px" height="200px"></li>
+    <li id="img10"><img src="8.jpeg" width="200px" height="200px"></li>
+    <li id="img11"><img src="9.jpeg" width="200px" height="200px"></li>
+    <li id="img12"><img src="10.jpeg" width="200px" height="200px"></li>
+     </ul>
+</div>
+</body>
+</html>
+
