@@ -9,10 +9,12 @@
 <script>
 
 const calculate = () => {
+    //taking inputs from the user.
 let maths= document.getElementById("Maths").value;
 let English= document.getElementById("Eng").value;
 let Science= document.getElementById("sci").value;
 let  SocialScience= document.getElementById("ssc").value; 
+    //Assigning grades based upon marks
 let Grades = "";
 if(maths=="" && English =="" && Science =="" && SocialScience ==""){
 document.getElementById("para").innerHTML= `Enter Valid Marks`;
