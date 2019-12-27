@@ -1,7 +1,11 @@
-.button {
+.button2 {
     color:rgb(62, 186, 190);
-    border-radius: 20%;
+      cursor: pointer;
+}
+.button1{
+    color:rgb(62, 186, 190);
     cursor: pointer;
+    margin-left: 40%;
 }
 .container {
     width:100%;
