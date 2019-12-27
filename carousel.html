@@ -32,6 +32,7 @@
     <a href="javscript:void(0);" class="button2" onclick="nextClick()">Next</a>
 </body>
 <script type="text/javascript">
+    /* this code is for aligning images in one row.*/
     let liElement= Array.from(document.getElementsByTagName("li"));
     let startSlide=0;
     liElement.forEach(element => {
@@ -39,6 +40,7 @@
         element.style.position="absolute";
         startSlide+=16.67;
     })
+    /*this is for moving the images from left to right on next click*/
     let moveLeft=0;
     let elemNo= 6;
     let ulElement= document.getElementsByTagName("ul")[0];
