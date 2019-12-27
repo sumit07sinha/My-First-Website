@@ -1,3 +1,4 @@
-# My-First-Website
-My first website using html and css. I am using various styling techniques to deisgn my website.
-I will work on css from zero to hero level.
+# My web development projects are as follows:
+- Grade Calculator by taking inputs from users.
+- Image Carousel using HTML, CSS and JavaScript.
+- Form validation using HTML, CSS and JavaScript.
