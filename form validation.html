@@ -9,7 +9,7 @@ function validate(){
        
         var regx = /^([a-zA-Z0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8}).([a-z]{2,3})?$/;
        
-        if(regx.test(x)==true)              //to check for regx 
+        if(regx.test(x)==true)      //to check for regx 
             {
                 
                 document.getElementById("error").style.visibility="visible";
@@ -31,7 +31,7 @@ function validate(){
             
             else if(x==""&&y=="")
             {
-                alert("No blank is allowed");
+                alert("Please fill the required fields");
             
                 return false;
             }
