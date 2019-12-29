@@ -1,0 +1,92 @@
+<title> WELCOME </title> 
+<script> 
+function validate(){
+          var x = document.getElementById("username").value; 
+          var y = document.getElementById("password").value;
+        //code for email validation//
+        //let z = document.getElementById("username");
+       // let regx = /^([a-zA-Z0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8}).([a-z]{2,3})?$/;
+       
+        var regx = /^([a-zA-Z0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8}).([a-z]{2,3})?$/;
+       
+        if(regx.test(x)==true)              //to check for regx 
+            {
+                
+                document.getElementById("error").style.visibility="visible";
+                document.getElementById("error").style.color="green";
+                document.getElementById("error").innerHTML="valid";
+                return true;
+            
+            }else if(regx.test(x)==false)
+            {
+                //alert("invalid");
+                document.getElementById("error").style.visibility="visible";
+                document.getElementById("error").style.color="red";
+                document.getElementById("error").innerHTML="invalid";
+                return false;
+                
+            }
+        
+        
+            
+            else if(x==""&&y=="")
+            {
+                alert("No blank is allowed");
+            
+                return false;
+            }
+            else if(x==y)
+            {
+               alert("username and password are the same");
+               return false;
+            }
+            else if(x.trim()=="")
+            {
+               
+                x.style.border="solid 3px red";
+                document.getElementById("errorstyle1").style.visibility="visible";
+                return false;
+            }
+            else if(y.trim()=="")
+            {
+                
+                y.style.border="solid 3px red";
+                document.getElementById("errorstyle2").style.visibility="visible";
+                return false;
+            }
+            else if(y.trim().length<5)
+            {
+                alert("password should be atleast 5 characters");
+                return false;
+            }
+            
+                else 
+            {
+             
+                return true;
+            }
+        }
+        
+    
+</script>
+
+<body>
+    <form onsubmit="return validate()" action="support file.html"> //Any html file that has to be opened
+  /* creation of sign up box div*/
+  <div class="SignUp">
+        <h1>WELCOME</h1>
+    <div class="inputs">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <input type="text" id="username" placeholder="Enter Email ID" required>
+        <label id="error" style="color:red; visibility:hidden">INVALID</label> //Optional
+        <label id="errorstyle1" style="color:red; visibility:hidden">Fill the box</label>//Optional
+    </div><br>
+    <div class="inputs">
+        <i class="fa fa-lock" aria-hidden="false"></i>
+        <input type="password" id="password" placeholder="Enter Password" required>
+        <label id="errorstyle2" style="color:red; visibility:hidden">Fill the box</label>
+        </div><br>
+    <input class="button" type="submit" value="Sign In">
+</div>
+    </form>        
+</body>
