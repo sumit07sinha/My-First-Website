@@ -29,10 +29,11 @@
       
     </div>
     <button id="button1">Previous</a>
-    <a href="javscript:void(0);" class="button2" onclick="nextClick()">Next</a>
+    <button id="button2">Next</a>
 </body>
 <script type="text/javascript">
     document.getElementById("button1").addEventListener("click",previousClick);
+    document.getElementById("button2").addEventListener("click",nextClick);
     /* this code is for aligning images in one row.*/
     let liElement= Array.from(document.getElementsByTagName("li"));
     let startSlide=0;
