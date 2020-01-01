@@ -17,7 +17,8 @@ function validate(){
                 document.getElementById("error").innerHTML="valid";
                 return true;
             
-            }else if(regx.test(x)==false)
+            }
+          else if(regx.test(x)==false)
             {
                 //alert("invalid");
                 document.getElementById("error").style.visibility="visible";
