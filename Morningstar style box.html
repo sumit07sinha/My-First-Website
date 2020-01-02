@@ -23,7 +23,7 @@
                     text-align:center;
                     display: table-cell;
                     vertical-align:middle;
-                    margin:1px;
+                    margin:none;
                    
                 }
                 .firstChild {
@@ -35,8 +35,8 @@
                     text-align:center;
                     display: table-cell;
                     vertical-align:middle;
-                    margin:1px;
-                   
+                    margin: none;
+                 
                 }
                 .secondChild{
                    position: relative;
@@ -52,8 +52,7 @@
                 .parentChild {
                    
                    margin-top: 40px;;
-                    
-                    float: left;
+                   float: left;
                     width: 192px;
                     height:192px;
                     margin-left: 10px;
@@ -61,6 +60,9 @@
                 .tooltip{
                     margin-left: 40%;
                     font-size: large;
+                }
+                .backgroundBlack {
+                    background-color: black;
                 }
               
             </style>     
@@ -70,18 +72,18 @@
         <div class="tooltip">
             <p>Please Select fund investment style:</p>
          
-    <select id="selected">
+    <select id="investmentFund">
         
-        <option value="Value" id="a" >Value</option>
-        <option value="Blend"  id="b">Blend</option>
-        <option value="Growth" id="c">Growth</option>
+        <option value="Value">Value</option>
+        <option value="Blend">Blend</option>
+        <option value="Growth">Growth</option>
     </select>    
      
             <p>Please Select market capital:</p>
-    <select id="selected">   
+    <select id="marketCapital">   
    
         <option value="High" id="d">High</option>      
-        <option value="Mid" id="e">Mid</option>
+        <option value="Mid"  id="e">Mid</option>
         <option value="Low"  id="f">Low</option>
     
     </select>
@@ -95,15 +97,15 @@
             <div class="firstChild">Value</div>
             <div class="firstChild">Blend</div>
             <div class="firstChild">Growth</div>
-            <div class="ele" id = "first element"></div>
-            <div class="ele" id = "second element"></div>
-            <div class="ele" id = "third element"></div>
-            <div class="ele" id = "fourth element"></div>
-            <div class="ele" id = "fifth element" style="background-color: black"></div>
-            <div class="ele" id = "sixth element"></div>
-            <div class="ele" id = "seventh element"></div>
-            <div class="ele" id = "eighth element"></div>
-            <div class="ele" id = "nineth element"></div>
+            <div class="ele" data-matrix="Value-High"></div>
+            <div class="ele" data-matrix="Blend-High"></div>
+            <div class="ele" data-matrix="Growth-High"></div>
+            <div class="ele" data-matrix="Value-Mid"></div>
+            <div class="ele" data-matrix="Blend-Mid"></div>
+            <div class="ele" data-matrix="Growth-Mid"></div>
+            <div class="ele" data-matrix="Value-Low"></div>
+            <div class="ele" data-matrix="Blend-Low"></div>
+            <div class="ele" data-matrix="Growth-Low"></div>
         
         </div>
      
@@ -119,13 +121,25 @@
     <script type = "text/javascript">
      document.getElementById("submit").addEventListener("click",highlightBox);
 
-    function highlightBox(onselect) {
-        if (onselect== "Value" && onselect=="Mid")
-        {
-            document.getElementById("fourth element").style.backgroundColor= 'red';
+    function highlightBox() {
+        let selectedElement = document.getElementsByClassName("backgroundBlack")[0];
+        if(selectedElement){
+            selectedElement.classList.remove("backgroundBlack");
         }
+        let investment=document.getElementById("investmentFund").value;
+        let marketCap=document.getElementById("marketCapital").value;
+        if (investment && marketCap)
+        {
+           let userSelection = document.getElementsByClassName("ele");
+           Array.from(userSelection).forEach((element)=>{
+                if(element.getAttribute("data-matrix")==`${investment}-${marketCap}`){
+                    element.classList.add("backgroundBlack");
+                }
+            })
+        }
+
     }
-    document.getElementById("submit").addEventListener("click",highlightBox());
+    
 
 
     </script>
