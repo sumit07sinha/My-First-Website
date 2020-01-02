@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <title>Matrix Using HTML and CSS</title>
+            <style type="text/css">
+                .parent {
+                    margin-left: 40%;
+                    float: left;
+                    width: 192px;
+                    height:192px;
+                }
+
+                .ele {
+                    float: left;
+                    width: 60px;
+                    height: 60px;
+                    background-color: #96a8c4;
+                    font-size:18px;
+                    text-align:center;
+                    display: table-cell;
+                    vertical-align:middle;
+                    margin:1px;
+                   
+                }
+                .firstChild {
+                    float: left;
+                    width: 60px;
+                    height: 30px;
+                    background-color: white;
+                    font-size:18px;
+                    text-align:center;
+                    display: table-cell;
+                    vertical-align:middle;
+                    margin:1px;
+                   
+                }
+                .firstChild2 {
+                   position: relative;
+                    width: 60px;
+                    height: 50px;
+                    background-color: white;
+                    font-size:18px;
+                    text-align:center;
+                    display: table-cell;
+                    text-orientation: sideways-right;
+                 
+                }
+                .parent2 {
+                   
+                   margin-top: 40px;;
+                    
+                    float: left;
+                    width: 192px;
+                    height:192px;
+                    text-align:center;
+                }
+                .tooltip{
+                    margin-left: 40%;
+                    font-size: large;
+                }
+              
+            </style>     
+    </head>
+
+    <body>
+        <div class="tooltip">
+            <p>Please Select fund investment style:</p>
+         
+     <select id="selected">
+        
+        <option value="Value" id="a" >Value</option>
+        <option value="Blend"  id="b">Blend</option>
+        <option value="Growth" id="c">Growth</option>
+        
+     </select>
+            <p>Please Select market capital:</p>
+         
+    <select id="selection">
+        <option value="High" id="d">High</option>      
+        <option value="Mid" id="e">Mid</option>
+        <option value="Low"  id="f">Low</option>
+    
+    </select>
+    <br>
+ <br>
+<button type="button" id="submit">submit</button>        
+        </div>
+        <br>
+        <div class="parent">
+            <div class="firstChild">Value</div>
+            <div class="firstChild">Blend</div>
+            <div class="firstChild">Growth</div>
+            <div class="ele" id = "first element"></div>
+            <div class="ele" id = "second element"></div>
+            <div class="ele" id = "third element"></div>
+            <div class="ele" id = "fourth element"></div>
+            <div class="ele" id = "fifth element"></div>
+            <div class="ele" id = "sixth element"></div>
+            <div class="ele" id = "seventh element"></div>
+            <div class="ele" id = "eighth element"></div>
+            <div class="ele" id = "nineth element"></div>
+        
+        </div>
+     
+        <div class="parent2">
+            <div class="firstChild2">High</div><br>
+            <div class="firstChild2">Mid</div><br>
+            <div class="firstChild2">Low </div>
+        </div>
+    </body>
+        
+    
+    <script type = "text/javascript">
+     document.getElementById("submit").addEventListener("click",highlightBox());
+
+    
+
+
+
+    </script>
+</html>
