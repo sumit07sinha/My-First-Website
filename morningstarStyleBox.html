@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html class="no-js">
+   
+       
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Morningstar Style box Using HTML and CSS</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <title>Your first Backbone.js App | Tutorialzine </title>
 
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/styles.css">
+        <!-- Google web fonts -->
+        <!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel='stylesheet' /> -->
 
-        <script src="js/lib/modernizr-2.6.2.min.js"></script>
+        <!-- The main CSS file -->
+      
+
+    
+
+      
         
         <style type="text/css">
            
@@ -78,103 +81,253 @@
 
 
     </head>
+
+
+
     <body>
+        <div class="tooltip">
+            <form id="main" method="post" action="submit.php"></form>
+            <p>Please Select fund investment style:</p>
+            <ul id="InvestmentFund">
+             </ul>  
+         
+            <p>Please Select market capital:</p>
+                <ul id="marketCapital">   
+            
+                    <!-- <option value="High" id="d">High</option>      
+                    <option value="Mid"  id="e">Mid</option>
+                    <option value="Low"  id="f">Low</option> -->
+                
+                </ul>
+        <br>
+        <br>
+    <input type="submit" id="submit" value="Submit">       
+            </div>
+            <br>
+            <div class="parent">
+                <h3>Fund Investment Style</h3>
+                <div class="firstChild">Value</div>
+                <div class="firstChild">Blend</div>
+                <div class="firstChild">Growth</div>
+                <div class="ele" data-matrix="Value-High"></div>
+                <div class="ele" data-matrix="Blend-High"></div>
+                <div class="ele" data-matrix="Growth-High"></div>
+                <div class="ele" data-matrix="Value-Mid"></div>
+                <div class="ele" data-matrix="Blend-Mid"></div>
+                <div class="ele" data-matrix="Growth-Mid"></div>
+                <div class="ele" data-matrix="Value-Low"></div>
+                <div class="ele" data-matrix="Blend-Low"></div>
+                <div class="ele" data-matrix="Growth-Low"></div>
+            
+            </div>
+         
+            <div class="parentChild">
+                <h3>Size</h3>
+                <div class="secondChild">High</div><br>
+                <div class="secondChild">Mid</div><br>
+                <div class="secondChild">Low </div>
+            </div>
+
+        
+
+        <!-- JavaScript Includes -->
         <script src="js/lib/jquery-min.js"></script>
         <script src="js/lib/underscore-min.js"></script>
         <script src="js/lib/backbone-min.js"></script>
-        <script src="js/main.js"></script>
-        <div class="tooltip">
-        <p>Please Select fund investment style:</p>
-         
-            <select id="investmentFund">
+       
+        <script type="text/javascript">
+        $(function(){
+                // Create a model for the services
+                var InvestmentFund = Backbone.Model.extend({
+
+                    // These are their default values
+
+                    defaults:{
+                        title: 'Select',
+                        Select: false
+                    },
+
+                    // Helper function for checking/unchecking a service
+                    toggle: function(){
+                        this.set('Select', !this.get('Select'));
+                    }
+                });
+                var marketCapital = Backbone.Model.extend({
+
+                    // Will contain one attributes.
+                    // These are their default values
+
+                    defaults:{
+                        title: 'Select',
+                        checked: false
+                    },
+
+                    // Helper function for checking/unchecking a service
+                    toggle: function(){
+                        this.set('checked', !this.get('checked'));
+                    }
+                });
+
+                // Create a collection of services
+                var InvestmentFundList = Backbone.Collection.extend({
+
+                    // Will hold objects of the InvestmentFund
+                    
+                    model: InvestmentFund,
+                    // Return an array only with the checked services
+                    getChecked: function(){
+                        return this.where({checked:true});
+                    }
+                });
+                var marketCapitalList = Backbone.Collection.extend({
+
+                    // Will hold objects of the InvestmentFund
                 
-                <option value="Value">Value</option>
-                <option value="Blend">Blend</option>
-                <option value="Growth">Growth</option>
-            </select>    
-     
-        <p>Please Select market capital:</p>
-            <select id="marketCapital">   
-        
-                <option value="High" id="d">High</option>      
-                <option value="Mid"  id="e">Mid</option>
-                <option value="Low"  id="f">Low</option>
-            
-            </select>
-    <br>
-    <br>
-<button type="button" id="submit">Submit</button>        
-        </div>
-        <br>
-        <div class="parent">
-            <h3>Fund Investment Style</h3>
-            <div class="firstChild">Value</div>
-            <div class="firstChild">Blend</div>
-            <div class="firstChild">Growth</div>
-            <div class="ele" data-matrix="Value-High"></div>
-            <div class="ele" data-matrix="Blend-High"></div>
-            <div class="ele" data-matrix="Growth-High"></div>
-            <div class="ele" data-matrix="Value-Mid"></div>
-            <div class="ele" data-matrix="Blend-Mid"></div>
-            <div class="ele" data-matrix="Growth-Mid"></div>
-            <div class="ele" data-matrix="Value-Low"></div>
-            <div class="ele" data-matrix="Blend-Low"></div>
-            <div class="ele" data-matrix="Growth-Low"></div>
-        
-        </div>
-     
-        <div class="parentChild">
-            <h3>Size</h3>
-            <div class="secondChild">High</div><br>
-            <div class="secondChild">Mid</div><br>
-            <div class="secondChild">Low </div>
-        </div>
-    </body>
-    <script type = "text/javascript">
-    // Creating Models
-        // var MarketInvestment= Backbone.Model.extend({});
-        // var MarketInvestments = Backbone.Collection.extend({});
-        // var SelectedElement = Backbone.Model.extend({});
-        // var Investment = new MarketInvestment({});
-        // var MarketCap = new MarketInvestment({});
-        // var selectedElement= new SelectedElement({});
+                    model: marketCapital,
+                    // Return an array only with the checked services
+                    getChecked: function(){
+                        return this.where({checked:true});
+                    }
+                });
 
-        // Creating Views}
-        var InvestmentView= Backbone.View.extend ({
-                    initialize: function(){
-                        this.template = _.template($('#investmentFund').value())
-                    },
+                // Prefill the collection with a number of services.
+                var InvestmentFundLists = new InvestmentFundList([
+                    new InvestmentFund({ title: 'Value'}),
+                    new InvestmentFund({ title: 'Blend'}),
+                    new InvestmentFund({ title: 'Growth'}),
+                    
+                    // Add more here
+                ]);
+                var marketCapitalLists = new marketCapitalList([
+                    new marketCapital({ title: 'High'}),
+                    new marketCapital({ title: 'Mid'}),
+                    new marketCapital({ title: 'Low'}),
+                    
+                    // Add more here
+                ]);
+
+                // This view turns a Service model into HTML. Will create LI elements.
+                var marketCapitalView = Backbone.View.extend({
+                    tagName: 'li',
+
                     events:{
-                        'click.submit': 'highlightBox'
+                        'click': 'toggleService'
                     },
-                    highlightBox: function(){
-                        var selectedElement = this.$('.backgroundBlack[0]').value();
-                        if(selectedElement){
-                            selectedElement.classList.remove("backgroundBlack");
-                             }
-                        var investment= this.$('#investmentFund').value;
-                        var marketCap=  this.$('#marketCapital').value;
-                        var userSelection= this.$('.ele');
-                        
-                        if (investment && marketCap)
-                       
-                        {
-                            Array.from(userSelection).forEach((element)=>{
-                                if(element.getAttribute("data-matrix")==`${investment}-${marketCap}`){
-                                    element.classList.add("backgroundBlack");
-                                }
-                            })
-                        }
-                    },
-                     render: function(){
-                         return this;
-                     }        
-                 });
-       
-        </script>
-       
-</html>
 
-       
-    
-   
+                    initialize: function(){
+
+                        // Set up event listeners. The change backbone event
+                        // is raised when a property changes (like the checked field)
+
+                        this.listenTo(this.model, 'change', this.render);
+                    },
+
+                    render: function(){
+
+                        // Create the HTML
+
+                        this.$el.html('<input type="checkbox" value="1" name="' + this.model.get('title') + '" /> ' + this.model.get('title') + '<span>$' + this.model.get('price') + '</span>');
+                        this.$('input').prop('checked', this.model.get('checked'));
+
+                        // Returning the object is a good practice
+                        // that makes chaining possible
+                        return this;
+                    },
+
+                    toggleService: function(){
+                        this.model.toggle();
+                    }
+                });
+                var InvestmentFundListView = Backbone.View.extend({
+                    tagName: 'li',
+
+                    events:{
+                        'click': 'toggleService'
+                    },
+
+                    initialize: function(){
+
+                        // Set up event listeners. The change backbone event
+                        // is raised when a property changes (like the checked field)
+
+                        this.listenTo(this.model, 'change', this.render);
+                    },
+
+                    render: function(){
+
+                        // Create the HTML
+
+                        this.$el.html('<input type="checkbox" value="1" name="' + this.model.get('title') + '" /> ' + this.model.get('title') + '<span>$' + this.model.get('price') + '</span>');
+                        this.$('input').prop('checked', this.model.get('checked'));
+
+                        // Returning the object is a good practice
+                        // that makes chaining possible
+                        return this;
+                    },
+
+                    toggleService: function(){
+                        this.model.toggle();
+                    }
+                });
+
+
+                // The main view of the application
+                var App = Backbone.View.extend({
+
+                    // Base the view on an existing element
+                    el: $('#main'),
+
+                    initialize: function(){
+
+                        // Cache these selectors
+                        this.total = $('#total span');
+                        this.list = $('#InvestmentFund');
+                        this.list = $('#marketCapital');
+                        // Listen for the change event on the collection.
+                        // This is equivalent to listening on every one of the 
+                        // service objects in the collection.
+                        
+                        this.listenTo(InvestmentFund, 'change', this.render);
+                        this.listenTo(marketCapital, 'change', this.render);
+                        // Create views for every one of the services in the
+                        // collection and add them to the page
+
+                        InvestmentFundLists.each(function(InvestmentFund){
+
+                            var view = new InvestmentFundListView({ model: InvestmentFund });
+                            this.list.append(view.render().el);
+
+                        }, this);   // "this" is the context in the callback
+                        marketCapitalLists.each(function(marketCapital){
+
+                        var view2 = new marketCapitalView({ model: marketCapital });
+                        this.list.append(view.render().el);
+
+                }, this); },  // "this" is the context in the callback
+                //     },
+
+                //     render: function(){
+
+                //         // Calculate the total order amount by agregating
+                //         // the prices of only the checked elements
+
+                //         var total = 0;
+
+                //         _.each(services.getChecked(), function(elem){
+                //             total += elem.get('price');
+                //         });
+
+                //         // Update the total price
+                //         this.total.text('$'+total);
+
+                //         return this;
+                //     }
+                // });
+
+                
+                });
+                // new App();
+            });
+</script>
+  
+</html>
