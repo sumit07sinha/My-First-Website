@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Morningstar Style box Using HTML and CSS</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/styles.css">
+
+        <script src="js/lib/modernizr-2.6.2.min.js"></script>
+        
+        <style type="text/css">
+           
+            .parent {
+                margin-left:40%;
+                float: left;
+                width: 192px;
+                height:192px;
+            }
+            .ele {
+                float: left;
+                width: 60px;
+                height: 60px;
+                background-color: white;
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-size:18px;
+                text-align:center;
+                display: table-cell;
+                vertical-align:middle;
+                margin:none;
+               
+            }
+            .firstChild {
+                float: left;
+                width: 60px;
+                height: 30px;
+                background-color: white;
+                font-size:18px;
+                text-align:center;
+                display: table-cell;
+                vertical-align:middle;
+                            
+            }
+            .secondChild{
+               position: relative;
+                width: 60px;
+                height: 50px;
+                background-color: white;
+                font-size:18px;
+                text-align:center;
+                display: table-cell;
+                text-orientation: sideways-right;
+             
+            }
+            .parentChild {
+               
+               margin-top: 40px;;
+               float: left;
+                width: 192px;
+                height:192px;
+                margin-left: 10px;
+            }
+            .tooltip{
+                margin-left: 40%;
+                font-size: large;
+            }
+            .backgroundBlack {
+                background-color: black;
+            }
+          
+        </style>     
+
+
+    </head>
+    <body>
+        <script src="js/lib/jquery-min.js"></script>
+        <script src="js/lib/underscore-min.js"></script>
+        <script src="js/lib/backbone-min.js"></script>
+        <script src="js/main.js"></script>
+        <div class="tooltip">
+        <p>Please Select fund investment style:</p>
+         
+            <select id="investmentFund">
+                
+                <option value="Value">Value</option>
+                <option value="Blend">Blend</option>
+                <option value="Growth">Growth</option>
+            </select>    
+     
+        <p>Please Select market capital:</p>
+            <select id="marketCapital">   
+        
+                <option value="High" id="d">High</option>      
+                <option value="Mid"  id="e">Mid</option>
+                <option value="Low"  id="f">Low</option>
+            
+            </select>
+    <br>
+    <br>
+<button type="button" id="submit">Submit</button>        
+        </div>
+        <br>
+        <div class="parent">
+            <h3>Fund Investment Style</h3>
+            <div class="firstChild">Value</div>
+            <div class="firstChild">Blend</div>
+            <div class="firstChild">Growth</div>
+            <div class="ele" data-matrix="Value-High"></div>
+            <div class="ele" data-matrix="Blend-High"></div>
+            <div class="ele" data-matrix="Growth-High"></div>
+            <div class="ele" data-matrix="Value-Mid"></div>
+            <div class="ele" data-matrix="Blend-Mid"></div>
+            <div class="ele" data-matrix="Growth-Mid"></div>
+            <div class="ele" data-matrix="Value-Low"></div>
+            <div class="ele" data-matrix="Blend-Low"></div>
+            <div class="ele" data-matrix="Growth-Low"></div>
+        
+        </div>
+     
+        <div class="parentChild">
+            <h3>Size</h3>
+            <div class="secondChild">High</div><br>
+            <div class="secondChild">Mid</div><br>
+            <div class="secondChild">Low </div>
+        </div>
+    </body>
+    <script type = "text/javascript">
+    // Creating Models
+        // var MarketInvestment= Backbone.Model.extend({});
+        // var MarketInvestments = Backbone.Collection.extend({});
+        // var SelectedElement = Backbone.Model.extend({});
+        // var Investment = new MarketInvestment({});
+        // var MarketCap = new MarketInvestment({});
+        // var selectedElement= new SelectedElement({});
+
+        // Creating Views}
+        var InvestmentView= Backbone.View.extend ({
+                    initialize: function(){
+                        this.template = _.template($('#investmentFund').value())
+                    },
+                    events:{
+                        'click.submit': 'highlightBox'
+                    },
+                    highlightBox: function(){
+                        var selectedElement = this.$('.backgroundBlack[0]').value();
+                        if(selectedElement){
+                            selectedElement.classList.remove("backgroundBlack");
+                             }
+                        var investment= this.$('#investmentFund').value;
+                        var marketCap=  this.$('#marketCapital').value;
+                        var userSelection= this.$('.ele');
+                        
+                        if (investment && marketCap)
+                       
+                        {
+                            Array.from(userSelection).forEach((element)=>{
+                                if(element.getAttribute("data-matrix")==`${investment}-${marketCap}`){
+                                    element.classList.add("backgroundBlack");
+                                }
+                            })
+                        }
+                    },
+                     render: function(){
+                         return this;
+                     }        
+                 });
+       
+        </script>
+       
+</html>
+
+       
+    
+   
