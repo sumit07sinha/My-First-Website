@@ -82,7 +82,7 @@
             <form id="main" method="post" action="submit.php"></form>
             <p>Please Select fund investment style:</p>
             <ul id="InvestmentFund">
-             </ul>  
+            </ul>  
          
             <p>Please Select market capital:</p>
                 <ul id="marketCapital">   
@@ -174,7 +174,7 @@
                 });
                 var marketCapitalList = Backbone.Collection.extend({
 
-                    // Will hold objects of the InvestmentFund
+                    // Will hold objects of the marketCapital
                 
                     model: marketCapital,
                     // Return an array only with the checked services
@@ -188,15 +188,13 @@
                     new InvestmentFund({ title: 'Value'}),
                     new InvestmentFund({ title: 'Blend'}),
                     new InvestmentFund({ title: 'Growth'}),
-                    
-                    // Add more here
+                 
                 ]);
                 var marketCapitalLists = new marketCapitalList([
                     new marketCapital({ title: 'High'}),
                     new marketCapital({ title: 'Mid'}),
                     new marketCapital({ title: 'Low'}),
                     
-                    // Add more here
                 ]);
 
                 // This view turns a Service model into HTML. Will create LI elements.
@@ -209,8 +207,8 @@
 
                     initialize: function(){
 
-                        // Set up event listeners. The change backbone event
-                        // is raised when a property changes (like the checked field)
+                        /*Set up event listeners. The change backbone event
+                        is raised when a property changes (like the checked field)*/
 
                         this.listenTo(this.model, 'change', this.render);
                     },
@@ -221,9 +219,6 @@
 
                         this.$el.html('<input type="checkbox" value="1" name="' + this.model.get('title') + '" /> ' + this.model.get('title') + '<span>$' + this.model.get('price') + '</span>');
                         this.$('input').prop('checked', this.model.get('checked'));
-
-                        // Returning the object is a good practice
-                        // that makes chaining possible
                         return this;
                     },
 
@@ -240,9 +235,6 @@
 
                     initialize: function(){
 
-                        // Set up event listeners. The change backbone event
-                        // is raised when a property changes (like the checked field)
-
                         this.listenTo(this.model, 'change', this.render);
                     },
 
@@ -253,8 +245,6 @@
                         this.$el.html('<input type="checkbox" value="1" name="' + this.model.get('title') + '" /> ' + this.model.get('title') + '<span>$' + this.model.get('price') + '</span>');
                         this.$('input').prop('checked', this.model.get('checked'));
 
-                        // Returning the object is a good practice
-                        // that makes chaining possible
                         return this;
                     },
 
@@ -272,18 +262,16 @@
 
                     initialize: function(){
 
-                        // Cache these selectors
                         this.total = $('#total span');
                         this.list = $('#InvestmentFund');
                         this.list = $('#marketCapital');
                         // Listen for the change event on the collection.
-                        // This is equivalent to listening on every one of the 
-                        // service objects in the collection.
+                        
                         
                         this.listenTo(InvestmentFund, 'change', this.render);
                         this.listenTo(marketCapital, 'change', this.render);
-                        // Create views for every one of the services in the
-                        // collection and add them to the page
+                        /*Create views for every one of the services in the
+                         collection and add them to the page*/
 
                         InvestmentFundLists.each(function(InvestmentFund){
 
