@@ -29,5 +29,6 @@ td:only-child{
 #google-link : link{
     color:blue;
 }
+// if y have already visited the link
 #google-link: visited{
     color:red; } 
