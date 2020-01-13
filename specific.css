@@ -2,9 +2,9 @@
 h2{
     color: red;
 }
-//this i have defined as class in html so it will be executed inspite of having tagog h2//
+//this i have defined as class in html so it will be executed inspite of having tagof h2//
 .subtitle {
-    color: blue;
+    color: black;
     background: steel blue;
 }
 #contact-us{
