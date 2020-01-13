@@ -7,7 +7,7 @@ color: red;
 #contact-us{
     color:green
 }
-attributes can also do the same thing which is done above by defining class
+//attributes can also do the same thing which is done above by defining class
 h2[class=subtitle]{
     color:blue;
 } 
