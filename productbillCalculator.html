@@ -84,7 +84,7 @@
     // Showing cost of selected product
     let mySelect = () => {
         var x = document.getElementById("select").value;
-        document.getElementById('Cost').innerHTML = `Cost of the selected product is ${x}`;
+        document.getElementById('Cost').innerHTML = `Cost of the selected product is Rs. ${x}`;
     }
     // Showing final price of the product
     let result = (event) => {
@@ -94,7 +94,7 @@
             let discountedRate = (productRate * 0.95);
             let taxRate = (discountedRate * 0.18);
             let finalPrice = (discountedRate + taxRate);
-            document.getElementById("myNumber").innerHTML = `Total value is ${finalPrice}`;
+            document.getElementById("myNumber").innerHTML = `Total value is Rs. ${finalPrice}`;
         }
         //Selection of ProductB
         else if (productRate == 1500) {
