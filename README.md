@@ -2,4 +2,4 @@
 - Grade Calculator by taking inputs from users.
 - Image Carousel using HTML, CSS and JavaScript.
 - Form validation using HTML, CSS and JavaScript.
-- MorningStar Style Box using MVC Model.
+- MorningStar Style Box using MVC Model
