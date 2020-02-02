@@ -1,9 +1,4 @@
-// let pageHead= document.createElement("h1");
-// let myElement= document.createElement("span");
-// myElement.innerText="Calendar";
-// pageHead.appendChild(myElement);
-// myElement.classList.add("header");
-// document.body.appendChild(pageHead);
+
 let myElement= document.createElement("div");
 let pageHeader= document.createElement("h1");
 pageHeader.innerHTML="hello World";
