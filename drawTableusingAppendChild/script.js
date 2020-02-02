@@ -1,4 +1,3 @@
-
 let myElement= document.createElement("div");
 let pageHeader= document.createElement("h1");
 pageHeader.innerHTML="hello World";
