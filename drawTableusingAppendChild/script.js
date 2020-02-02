@@ -11,8 +11,6 @@ tableHead.innerText="Marks Calculator";
 table.appendChild(tableHead);
 document.body.appendChild(table);
 myFunction= () => {
-   
-
 let tableRow= document.createElement("tr");
 let tD1=document.createElement("td");
 let tD2=document.createElement("td");
