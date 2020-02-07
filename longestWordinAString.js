@@ -1,4 +1,4 @@
-function longestWord(str){
+const longestWord= (str) => {
 let words= str.split(" ");
 let lWord= [""];
  let size=0;
