@@ -16,7 +16,5 @@ let lWord= [""];
  }
  return [...lWord];;
 }
-
-
 console.log(longestWord("this is the longest word"));
 console.log(longestWord("I woke up early today"));
