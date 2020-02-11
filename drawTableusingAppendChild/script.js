@@ -10,16 +10,16 @@ let tableHead= document.createElement("thead");
 tableHead.innerText="Marks Calculator";
 table.appendChild(tableHead);
 document.body.appendChild(table);
-myFunction= () => {
-let tableRow= document.createElement("tr");
-let tD1=document.createElement("td");
-let tD2=document.createElement("td");
-tD1.innerHTML="Si No.";
-tD2.innerHTML="Name";
-tableRow.appendChild(tD1);
-tableRow.appendChild(tD2);
-table.appendChild(tableRow);
-}
+  myFunction= () => {
+    let tableRow= document.createElement("tr");
+    let tD1=document.createElement("td");
+    let tD2=document.createElement("td");
+    tD1.innerHTML="Si No.";
+    tD2.innerHTML="Name";
+    tableRow.appendChild(tD1);
+    tableRow.appendChild(tD2);
+    table.appendChild(tableRow);
+  }
 let button= document.createElement("button");
 button.innerHTML="Add Tables";
 button.setAttribute("id","buttons");
