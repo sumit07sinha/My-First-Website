@@ -10,8 +10,8 @@ let tableHead= document.createElement("thead");
 tableHead.innerText="Marks Calculator";
 table.appendChild(tableHead);
 document.body.appendChild(table);
-/*to draw table*/
 
+/*to draw table*/
   myFunction= () => {
     let tableRow= document.createElement("tr");
     let tD1=document.createElement("td");
